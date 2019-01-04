@@ -29,6 +29,12 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $user = auth()->user();
+        if(!$user->getSetting('spreadsheetId')){
+            return redirect()->route('view.settings');
+        }
+
+
         return view('home');
     }
 
