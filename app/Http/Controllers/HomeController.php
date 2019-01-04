@@ -29,8 +29,17 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $client = $this->getClient();
+
+        if(($client->requireAuth ?? null)){
+            $authUrl = $client->createAuthUrl();
+            return view('auth', compact('authUrl'));
+        }
+
         $user = auth()->user();
-        if(!$user->getSetting('spreadsheetId')){
+        $spreadsheetId = $user->getSetting('spreadsheetId');
+
+        if(!$spreadsheetId){
             return redirect()->route('view.settings');
         }
 
