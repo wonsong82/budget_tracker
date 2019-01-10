@@ -20,7 +20,7 @@ Route::group([
     'middleware' => ['auth']
 ], function(){
     Route::get('auth', 'GoogleController@auth')->name('google.auth.view');
-    Route::post('auth', 'GoogleController@handleAuth')->name('google.auth.handle');
+    //Route::post('auth', 'GoogleController@handleAuth')->name('google.auth.handle');
 });
 
 

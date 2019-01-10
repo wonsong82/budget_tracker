@@ -10,14 +10,12 @@ use Illuminate\Http\Request;
 class GoogleController extends Controller
 {
 
-    public function auth()
+    /*public function auth()
     {
         $authUrl = urldecode(request()->get('url'));
 
         return view('google.auth', compact('authUrl'));
     }
-
-
 
     public function handleAuth()
     {
@@ -45,7 +43,39 @@ class GoogleController extends Controller
 
 
         return redirect()->intended();
+    }*/
+
+    public function auth()
+    {
+        $authCode = request()->get('code');
+
+        $client = new Google_Client();
+        $client->setApplicationName('Threeon Helper');
+        $client->setScopes([Google_Service_Sheets::SPREADSHEETS]);
+        $client->setAuthConfig(base_path('credentials.json'));
+        $accessToken = $client->fetchAccessTokenWithAuthCode($authCode);
+
+        // Check to see if there was an error.
+        if (array_key_exists('error', $accessToken)) {
+            throw new \Exception(join(', ', $accessToken));
+        }
+
+        $user = auth()->user();
+        if($user->token){
+            $user->token->fill($accessToken)->save();
+        }
+
+        else {
+            $user->token()->create($accessToken);
+        }
+
+
+        return redirect()->intended();
     }
+
+
+
+
 
 
     public function parseGoogleSheetId($url)

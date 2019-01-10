@@ -28,8 +28,9 @@ class GoogleClientAuth
 
         if($client->requireAuth ?? null){
             session()->put('url.intended', url()->current());
-            $authUrl = urlencode($client->createAuthUrl());
+            //$authUrl = urlencode($client->createAuthUrl());
             //return redirect()->to(route('google.auth.view') . '?url=' . $authUrl);
+            $authUrl = $client->createAuthUrl();
             return redirect()->to($authUrl);
         }
 
