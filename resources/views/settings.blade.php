@@ -39,8 +39,28 @@
                         </form>
                     </div>
                 </div>
+
             </div>
         </div>
+
+
+        <div class="row justify-content-center" style="margin-top:20px;">
+            <div class="col-md-8">
+                <div class="card">
+                    <div class="card-header">Instructions</div>
+                    <div class="card-body">
+                        <ol>
+                            <li>Click <a href="https://drive.google.com/open?id=1wpKD8BP8jYUtadzGQZszk-b8nPBmJB4m" target="_blank">here</a> to go to template drive and copy the template you want to your own drive.</li>
+                            <li>Go to the Spreadsheet you just copied and get the link url and paste it into the Spreadsheet ID field above.</li>
+                            <li>Hit Save button and you are connected!</li>
+                        </ol>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
     </div>
 
 @endsection
