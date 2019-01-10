@@ -28,8 +28,8 @@
 
                             <div class="form-group">
                                 <label>Spreadsheet ID</label>
-                                <input type="text" name="spreadsheet_id" class="form-control" placeholder="Enter Spreadsheet ID" value="{{ old('spreadsheet_id')? old('spreadsheet_id') : ( $spreadsheetId? $spreadsheetId : '') }}">
-                                <small class="form-text text-muted">Find spreadsheet ID and paste it here. For example, https://docs.google.com/spreadsheets/d/<b>1ErX_AxfjeErjdigSDf</b>/edit#gid=1</small>
+                                <input type="text" name="spreadsheet_id" class="form-control" placeholder="Enter Spreadsheet ID or URL" value="{{ old('spreadsheet_id')? old('spreadsheet_id') : ( $spreadsheetId? $spreadsheetId : '') }}">
+                                <small class="form-text text-muted">Find spreadsheet and paste its ID or Full URL. For example, https://docs.google.com/spreadsheets/d/<b>1ErX_AxfjeErjdigSDf</b>/edit#gid=1</small>
                             </div>
 
 

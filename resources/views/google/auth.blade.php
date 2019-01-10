@@ -7,7 +7,7 @@
                 <div class="card">
                     <div class="card-header">Auth Code</div>
                     <div class="card-body">
-                        <form action="{{ route('auth') }}" method="post" class="form-inline">
+                        <form action="{{ route('google.auth.handle') }}" method="post" class="form-inline">
                             {{ csrf_field() }}
                             {{ method_field('post') }}
                             <div class="form-group">

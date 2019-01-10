@@ -62,7 +62,9 @@
                     <div class="card-footer">
                         <input type="submit" value="Submit" class="btn btn-primary">
                         <a href="{{ route('home') }}" class="btn btn-light">Cancel</a>
-                        <a class="float-right btn btn-light text-primary" target="_blank" href="https://docs.google.com/spreadsheets/d/{{$spreadsheetId}}">Spreadsheet</a>
+                        <a class="float-right btn btn-light text-primary" href="{{ route('show.expense') }}">Raw Data</a>
+                        <a class="float-right btn btn-light text-primary" target="_blank" href="https://docs.google.com/spreadsheets/d/{{$spreadsheetId}}">View Spreadsheet</a>
+
                     </div>
                 </form>
             </div>

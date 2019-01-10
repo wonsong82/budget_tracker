@@ -2,6 +2,9 @@
 
 namespace App;
 
+use App\Http\Controllers\GoogleController;
+use Google_Client;
+use Google_Service_Sheets;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -27,31 +30,6 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
-
-
-
-
-    public function setSetting($key, $value)
-    {
-        $setting = $this->settings()->where('key', $key)->first();
-        if($setting){
-            $setting->fill(compact('value'))->save();
-        }
-        else {
-            $setting = $this->settings()->create(compact('key', 'value'));
-        }
-
-        return $setting;
-    }
-
-
-    public function getSetting($key)
-    {
-        $setting = $this->settings()->where('key', $key)->first();
-
-        return $setting? $setting->value : null;
-    }
-
 
 
 
